@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
 <head>
 	<title>Django Social</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="../../static/normalize.css">
-	<link rel="stylesheet" type="text/css" href="../../static/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="{% static 'social/normalize.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'social/style.css' %}">
 </head>
 <body>
 
@@ -20,9 +21,13 @@
 		</nav>
 	</header>
 
-	<!-------------------------------------
-					Messages 
-	-------------------------------------->
+	{% if messages %}
+	  {% for message in messages %}
+		<div class="notification {{message.tags}} ">
+			{{message}}
+		</div>
+	  {% endfor %}
+	{% endif %}
 
 	<!-------------------------------------
 					Navigation Bar 
