@@ -1,0 +1,11 @@
+{% extends "social/layout.html" %}
+{% block content %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form.content}}
+
+    <button type="submit">POST!</button>
+</form>
+  
+{% endblock content %}
